@@ -33,7 +33,8 @@ PRODUCT_PACKAGES += \
 
 # Notch hide
 PRODUCT_PACKAGES += \
-    NoCutoutOverlay
+    NoCutoutOverlay \
+    NotchBarKiller
 
 # tri-state key
 PRODUCT_PACKAGES += \
