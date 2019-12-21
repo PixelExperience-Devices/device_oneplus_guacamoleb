@@ -22,5 +22,4 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
 
 # Device init scripts
 PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.display.guacamole.rc
+    fstab.qcom
