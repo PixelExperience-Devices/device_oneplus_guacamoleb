@@ -83,3 +83,9 @@ vendor/etc/sensors/config/sx932x_0.json
 vendor/etc/sensors/config/tcs3701.json
 vendor/etc/sensors/config/tmd3702.json
 vendor/etc/sensors/sns_reg_config
+
+# Vibrator HAL
+vendor/bin/hw/vendor.qti.hardware.vibrator@1.2-service
+vendor/etc/init/vendor.qti.hardware.vibrator@1.2-service.rc
+vendor/lib64/hw/vibrator.default.so
+vendor/lib/hw/vibrator.default.so
