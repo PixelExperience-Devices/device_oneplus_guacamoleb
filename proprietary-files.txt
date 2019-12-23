@@ -1,3 +1,15 @@
+# Camera
+vendor/lib64/libyuv_watermark.so
+vendor/lib/libyuv_watermark.so
+vendor/lib64/camera/com.qti.sensormodule.gcoreinc_gc5035.bin
+vendor/lib64/camera/com.qti.tuned.gcoreinc_gc5035.bin
+vendor/lib64/camera/com.qti.tuned.gcoreinc_gc5035_18821.bin
+vendor/lib64/camera/com.qti.tuned.semco_imx586_18821.bin
+vendor/lib64/camera/com.qti.tuned.sunny_imx471_18821.bin
+vendor/lib64/camera/com.qti.sensor.imx586.so
+vendor/lib64/camera/com.qti.sensor.imx481.so
+vendor/lib64/camera/com.qti.sensor.s5k3m5.so
+
 # Fingerprint
 vendor/lib/hw/goodix.fod.msmnile.so
 vendor/lib/fp_hal_extension.so
