@@ -7,7 +7,6 @@
 
 BOARD_VENDOR := oneplus
 DEVICE_PATH := device/oneplus/guacamoleb
-PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := OnePlus7

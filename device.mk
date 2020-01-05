@@ -11,6 +11,7 @@ $(call inherit-product, vendor/oneplus/guacamoleb/guacamoleb-vendor.mk)
 
 # Vendor properties
 -include $(LOCAL_PATH)/vendor_props.mk
+PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
