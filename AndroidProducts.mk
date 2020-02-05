@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/potato_guacamoleb.mk
+    $(LOCAL_DIR)/aosp_guacamoleb.mk
