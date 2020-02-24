@@ -23,6 +23,7 @@ import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.os.FileObserver;
 import android.os.RemoteException;
+import android.os.UserHandle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.Log;
@@ -40,6 +41,10 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int MODE_NORMAL = 601;
     private static final int MODE_VIBRATION = 602;
     private static final int MODE_SILENCE = 603;
+
+    private static final String ACTION_UPDATE_SLIDER_POSITION
+            = "org.lineageos.settings.device.UPDATE_SLIDER_POSITION";
+    private static final String EXTRA_SLIDER_POSITION = "position";
 
     public static final String CLIENT_PACKAGE_NAME = "com.oneplus.camera";
     public static final String CLIENT_PACKAGE_PATH = "/data/misc/lineage/client_package_name";
@@ -98,20 +103,31 @@ public class KeyHandler implements DeviceKeyHandler {
         switch (scanCode) {
             case MODE_NORMAL:
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
+                sendUpdateBroadcast(2);
                 doHapticFeedback(MODE_NORMAL_EFFECT);
                 break;
             case MODE_VIBRATION:
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
+                sendUpdateBroadcast(1);
                 doHapticFeedback(MODE_VIBRATION_EFFECT);
                 break;
             case MODE_SILENCE:
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
+                sendUpdateBroadcast(0);
                 break;
             default:
                 return event;
         }
 
         return null;
+    }
+
+    private void sendUpdateBroadcast(int position) {
+        Intent intent = new Intent(ACTION_UPDATE_SLIDER_POSITION);
+        intent.putExtra(EXTRA_SLIDER_POSITION, position);
+        mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);
+        intent.setFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY);
+        Log.d(TAG, "slider change to positon " + position);
     }
 
     private void doHapticFeedback(VibrationEffect effect) {
