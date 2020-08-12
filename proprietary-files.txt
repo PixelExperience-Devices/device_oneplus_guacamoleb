@@ -838,7 +838,6 @@ vendor/lib64/libspcom.so
 
 # Perf
 vendor/bin/hw/vendor.qti.hardware.perf@2.2-service
-vendor/lib/libqti-perfd-client.so
 
 # Power-off alarm
 -product/app/PowerOffAlarm/PowerOffAlarm.apk

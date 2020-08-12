@@ -412,6 +412,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     OPScreenRecorder
 
+# Perf
+PRODUCT_PACKAGES += \
+    libqti-perfd-client
+    
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
