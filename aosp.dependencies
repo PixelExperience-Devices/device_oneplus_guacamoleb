@@ -9,6 +9,6 @@
     "repository"  : "vendor_oneplus_guacamoleb",
     "target_path" : "vendor/oneplus/guacamoleb",
     "branch"      : "ten",
-    "remote"      : "pixel-devices-bitbucket"
+    "remote"      : "pixel-devices-blobs"
   }
 ]
