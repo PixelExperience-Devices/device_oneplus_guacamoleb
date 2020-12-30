@@ -40,9 +40,11 @@ TARGET_INCLUDE_STOCK_ARCORE := true
 #Recorder
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
 
-# Build info
+BUILD_FINGERPRINT := OnePlus/OnePlus7/OnePlus7:10/QKQ1.190716.003/2011052232:user/release-keys
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE=OnePlus7 \
-    PRODUCT_NAME=OnePlus7 \
+    TARGET_DEVICE=guacamoleb \
+    PRODUCT_NAME=guacamoleb \
+    PRIVATE_BUILD_DESC="OnePlus7-user 10 QKQ1.190716.003 2011052232 release-keys"
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
+

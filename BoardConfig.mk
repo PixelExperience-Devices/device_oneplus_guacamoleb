@@ -8,10 +8,6 @@
 BOARD_VENDOR := oneplus
 DEVICE_PATH := device/oneplus/guacamoleb
 
-# Vendor init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_guacamoleb
-TARGET_RECOVERY_DEVICE_MODULES := libinit_guacamoleb
-
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
