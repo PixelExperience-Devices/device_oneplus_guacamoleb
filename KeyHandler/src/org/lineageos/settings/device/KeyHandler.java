@@ -42,9 +42,15 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final int MODE_VIBRATION = 602;
     private static final int MODE_SILENCE = 603;
 
+    // TriStateUI Modes
+    public static final int MODE_VIBRATE = 604;
+    public static final int MODE_RING = 605;
+    public static final int MODE_SILENT = 620;
+
     private static final String ACTION_UPDATE_SLIDER_POSITION
             = "org.lineageos.settings.device.UPDATE_SLIDER_POSITION";
     private static final String EXTRA_SLIDER_POSITION = "position";
+    public static final String EXTRA_SLIDER_POSITION_VALUE = "position_value";
 
     public static final String CLIENT_PACKAGE_NAME = "com.oneplus.camera";
     public static final String CLIENT_PACKAGE_PATH = "/data/misc/lineage/client_package_name";
@@ -100,34 +106,43 @@ public class KeyHandler implements DeviceKeyHandler {
 
         int scanCode = event.getScanCode();
 
+        int position = 0;
+        int positionValue = 0;
         switch (scanCode) {
             case MODE_NORMAL:
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
-                sendUpdateBroadcast(2);
+                position = 2;
+                positionValue = MODE_RING;
                 doHapticFeedback(MODE_NORMAL_EFFECT);
                 break;
             case MODE_VIBRATION:
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
-                sendUpdateBroadcast(1);
+                position = 1;
+                positionValue = MODE_VIBRATE;
                 doHapticFeedback(MODE_VIBRATION_EFFECT);
                 break;
             case MODE_SILENCE:
                 mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
-                sendUpdateBroadcast(0);
+                position = 0;
+                positionValue = MODE_SILENT;
                 break;
             default:
                 return event;
         }
 
+        sendUpdateBroadcast(position, positionValue);
+
         return null;
     }
 
-    private void sendUpdateBroadcast(int position) {
+    private void sendUpdateBroadcast(int position, int position_value) {
         Intent intent = new Intent(ACTION_UPDATE_SLIDER_POSITION);
         intent.putExtra(EXTRA_SLIDER_POSITION, position);
+        intent.putExtra(EXTRA_SLIDER_POSITION_VALUE, position_value);
         mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);
         intent.setFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY);
-        Log.d(TAG, "slider change to positon " + position);
+        Log.d(TAG, "slider change to positon " + position
+                + " with value " + position_value);
     }
 
     private void doHapticFeedback(VibrationEffect effect) {
