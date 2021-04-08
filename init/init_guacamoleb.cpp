@@ -60,4 +60,28 @@ void vendor_load_properties()
 {
     property_override_dual("ro.build.type", "ro.vendor.build.type", "user");
     property_override("ro.boot.verifiedbootstate", "green");
+
+    int rf_version = stoi(android::base::GetProperty("ro.boot.rf_version", ""));
+    switch (rf_version){
+      case 1:
+        /* China*/
+        property_override_dual("ro.product.model", "ro.product.vendor.model", "GM1900");
+        break;
+      case 3:
+        /* India*/
+        property_override_dual("ro.product.model", "ro.product.vendor.model", "GM1901");
+        break;
+      case 4:
+        /* Europe */
+        property_override_dual("ro.product.model", "ro.product.vendor.model", "GM1903");
+        break;
+      case 5:
+        /* Global / US Unlocked */
+        property_override_dual("ro.product.model", "ro.product.vendor.model", "GM1907");
+        break;
+      default:
+        /* Generic */
+        property_override_dual("ro.product.model", "ro.product.vendor.model", "GM1907");
+        break;
+    }
 }
