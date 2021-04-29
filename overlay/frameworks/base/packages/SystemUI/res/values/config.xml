@@ -25,4 +25,6 @@
 
     <!-- Respect drawable/rounded.xml intrinsic size for multiple radius corner path customization -->
     <bool name="config_roundedCornerMultipleRadius">true</bool>
+    
+    <color name="config_fodColor">#00ffffff</color>
 </resources>
