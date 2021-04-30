@@ -431,6 +431,13 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0-service.msmnile
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
+
 # Vendor libstdc++
 PRODUCT_PACKAGES += \
     libstdc++.vendor
