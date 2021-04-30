@@ -15,6 +15,9 @@ $(call inherit-product, vendor/oneplus/guacamoleb/guacamoleb-vendor.mk)
 # Translations
 $(call inherit-product-if-exists, vendor/translations/config.mk)
 
+# Call oneplus firmware
+$(call inherit-product-if-exists, vendor/oneplus/firmware/Android.mk)
+
 # Additional native libraries
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
