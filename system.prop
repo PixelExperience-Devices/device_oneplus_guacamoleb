@@ -1,15 +1,6 @@
 # Audio
 ro.audio.monitorRotation=true
 
-# Bluetooth
-bt.max.hfpclient.connections=1
-vendor.bluetooth.soc=cherokee
-
-# Bluetooth
-persist.vendor.bt.a2dp.aac_whitelist=false
-persist.vendor.btstack.enable.lpa=true
-ro.bluetooth.library_name=libbluetooth_qti.so
-
 # Camera
 persist.camera.assert.panic=true
 persist.camera.privapp.list=com.oneplus.factorymode,com.oneplus.camera,com.oem.autotest,com.oneplus.healthcheck
