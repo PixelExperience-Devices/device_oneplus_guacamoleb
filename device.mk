@@ -457,7 +457,9 @@ PRODUCT_PACKAGES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
-    device/oneplus/common
+    device/oneplus/common \
+    hardware/google/interfaces \
+    hardware/google/pixel    
 
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
