@@ -15,6 +15,7 @@ $(call inherit-product, device/oneplus/guacamoleb/device.mk)
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
+CUSTOM_DEVICE := OnePlus7
 PRODUCT_NAME := aosp_guacamoleb
 PRODUCT_DEVICE := guacamoleb
 PRODUCT_MANUFACTURER := OnePlus
