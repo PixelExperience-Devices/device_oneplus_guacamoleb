@@ -61,6 +61,7 @@ void vendor_load_properties()
     property_override_dual("ro.build.type", "ro.vendor.build.type", "user");
     property_override("ro.boot.verifiedbootstate", "green");
 
+    int prj_version = stoi(android::base::GetProperty("ro.boot.prj_version", ""));
     int rf_version = stoi(android::base::GetProperty("ro.boot.rf_version", ""));
     switch (rf_version){
       case 1:
@@ -84,4 +85,7 @@ void vendor_load_properties()
         property_override_dual("ro.product.model", "ro.product.vendor.model", "GM1907");
         break;
     }
+
+    property_override("vendor.boot.prj_version", std::to_string(prj_version).c_str());
+    property_override_dual("vendor.rf.version", "vendor.boot.rf_version", std::to_string(rf_version).c_str());
 }
