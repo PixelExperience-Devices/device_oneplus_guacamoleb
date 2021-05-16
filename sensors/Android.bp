@@ -53,7 +53,7 @@ cc_binary {
     ],
 }
 
-oneplus_msmnile_sensors_hal_binary {
+cc_binary {
     name: "als_correction_service.oneplus_msmnile",
     stem: "als_correction_service",
     init_rc: ["als_correction_service.rc"],

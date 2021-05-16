@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2009, 2015, The Android Open Source Project
+** Copyright 2012, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -17,12 +17,13 @@
 */
 -->
 
-<!-- These resources are around just to allow their values to be customized
-     for different hardware and product builds. -->
-<resources>
-    <!-- Doze: does this device support STATE_DOZE?  -->
-    <bool name="doze_display_state_supported">true</bool>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Respect drawable/rounded.xml intrinsic size for multiple radius corner path customization -->
-    <bool name="config_roundedCornerMultipleRadius">true</bool>
+    <!-- Height of the status bar -->
+    <dimen name="status_bar_height_portrait">36.599976dip</dimen>
+
+    <!-- Radius of the software rounded corners. -->
+    <dimen name="rounded_corner_radius">8dp</dimen>
+
 </resources>
+

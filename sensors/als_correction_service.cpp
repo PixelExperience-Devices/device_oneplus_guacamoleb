@@ -45,7 +45,7 @@ void updateScreenBuffer() {
         ScreenshotClient::capture(SurfaceComposerClient::getInternalDisplayToken(),
                                   android::ui::Dataspace::V0_SRGB,
                                   android::ui::PixelFormat::RGBA_8888,
-                                  Rect(ALS_POS_X, ALS_POS_Y, ALS_POS_X + 10, ALS_POS_Y + 10),
+                                  Rect(1000, 260, 1000 + 10, 260 + 10),
                                   10, 10, true, android::ui::ROTATION_0, &outBuffer);
         lastScreenUpdate = now.tv_sec;
     }

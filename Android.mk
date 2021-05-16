@@ -6,7 +6,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter guacamole guacamoleb guacamoleg hotdog hotdogb,$(TARGET_DEVICE)),)
+ifeq ($(TARGET_DEVICE),guacamole)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
