@@ -142,7 +142,7 @@
     </array>
     <item name="cpu.idle">5</item>
     <item name="cpu.awake">8</item>
-    <item name="battery.capacity">4000</item>
+    <item name="battery.capacity">3700</item>
     <array name="wifi.batchedscan">
         <value>.0002</value>
         <value>.002</value>
@@ -150,4 +150,7 @@
         <value>.2</value>
         <value>2</value>
     </array>
+    <allow-in-power-save package="com.google.android.gms" />
+    <allow-in-power-save package="com.oppo.market" />
+    <allow-in-data-usage-save package="com.google.android.gms" />
 </device>
