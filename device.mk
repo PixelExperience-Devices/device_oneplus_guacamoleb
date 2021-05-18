@@ -359,6 +359,9 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
+# OnePlus apps
+$(call inherit-product, vendor/oneplus/apps/guacamoleb/config.mk)
+
 # OMX
 PRODUCT_PACKAGES += \
     libavservices_minijail \
