@@ -9,7 +9,7 @@
 set -e
 
 # Required!
-export DEVICE=guacamole
+export DEVICE=guacamoleb
 export VENDOR=oneplus
 
 # Load extract_utils and do some sanity checks
@@ -29,7 +29,7 @@ source "${HELPER}"
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
 
 # Warning headers and guards
-write_headers "guacamole"
+write_headers "guacamoleb"
 
 # Device blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true

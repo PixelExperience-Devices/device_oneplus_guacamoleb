@@ -9,7 +9,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/oneplus/guacamole/guacamole-vendor.mk)
+$(call inherit-product, vendor/oneplus/guacamoleb/guacamoleb-vendor.mk)
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \

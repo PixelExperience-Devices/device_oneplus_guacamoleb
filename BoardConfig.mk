@@ -7,7 +7,7 @@
 BUILD_BROKEN_DUP_RULES := true
 
 BOARD_VENDOR := oneplus
-DEVICE_PATH := device/oneplus/guacamole
+DEVICE_PATH := device/oneplus/guacamoleb
 
 # Architecture
 TARGET_ARCH := arm64
