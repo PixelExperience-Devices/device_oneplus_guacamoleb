@@ -139,6 +139,7 @@ vendor/etc/init/calibrationOutput_uw.rc
 vendor/etc/init/calibrationOutput_wt.rc
 vendor/etc/init/vendor.oneplus.hardware.camera@1.0-service.rc
 vendor/etc/init/vendor.oneplus.hardware.CameraMDMHIDL@1.0-service.rc
+vendor/etc/init/vl53l1.rc
 vendor/lib/hw/android.hardware.camera.provider@2.4-impl.so
 vendor/lib/android.hardware.camera.provider@2.4-external.so
 vendor/lib/android.hardware.camera.provider@2.4-legacy.so
