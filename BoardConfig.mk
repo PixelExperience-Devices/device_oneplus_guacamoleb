@@ -112,9 +112,9 @@ TARGET_ENABLE_MEDIADRM_64 := true
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # HIDL
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
-ODM_MANIFEST_FILES := $(DEVICE_PATH)/manifest-qva.xml
+DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+ODM_MANIFEST_FILES += $(DEVICE_PATH)/manifest-qva.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB :=  //$(DEVICE_PATH):libinit_guacamoleb
