@@ -1,0 +1,1 @@
+allow vendor_poweroffalarm_app mnt_vendor_file:dir { ioctl read getattr lock open watch watch_reads search };
