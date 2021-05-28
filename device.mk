@@ -369,6 +369,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/odm_feature_list:$(TARGET_COPY_OUT_ODM)/etc/odm_feature_list
 
+# OPScreenRecorder
+PRODUCT_PACKAGES += \
+    OPScreenRecorder
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
