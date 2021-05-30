@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2015-2016 The CyanogenMod Project
  * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +15,11 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.device;
+package org.lineageos.device.DeviceSettings;
 
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -24,12 +27,15 @@ import android.media.AudioManager;
 import android.os.FileObserver;
 import android.os.RemoteException;
 import android.os.UserHandle;
-import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.provider.Settings;
 import android.util.Log;
+import android.util.SparseIntArray;
 import android.view.KeyEvent;
 
 import com.android.internal.os.DeviceKeyHandler;
+
+import org.lineageos.device.DeviceSettings.Constants;
 
 import vendor.oneplus.hardware.camera.V1_0.IOnePlusCameraProvider;
 
@@ -37,33 +43,29 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final String TAG = KeyHandler.class.getSimpleName();
     private static final boolean DEBUG = false;
 
-    // Slider key codes
-    private static final int MODE_NORMAL = 601;
-    private static final int MODE_VIBRATION = 602;
-    private static final int MODE_SILENCE = 603;
+    private static final SparseIntArray sSupportedSliderZenModes = new SparseIntArray();
+    private static final SparseIntArray sSupportedSliderRingModes = new SparseIntArray();
+    static {
+        sSupportedSliderZenModes.put(Constants.KEY_VALUE_TOTAL_SILENCE, Settings.Global.ZEN_MODE_NO_INTERRUPTIONS);
+        sSupportedSliderZenModes.put(Constants.KEY_VALUE_SILENT, Settings.Global.ZEN_MODE_OFF);
+        sSupportedSliderZenModes.put(Constants.KEY_VALUE_PRIORTY_ONLY, Settings.Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS);
+        sSupportedSliderZenModes.put(Constants.KEY_VALUE_VIBRATE, Settings.Global.ZEN_MODE_OFF);
+        sSupportedSliderZenModes.put(Constants.KEY_VALUE_NORMAL, Settings.Global.ZEN_MODE_OFF);
 
-    // TriStateUI Modes
-    public static final int MODE_VIBRATE = 604;
-    public static final int MODE_RING = 605;
-    public static final int MODE_SILENT = 620;
-
-    private static final String ACTION_UPDATE_SLIDER_POSITION
-            = "org.lineageos.settings.device.UPDATE_SLIDER_POSITION";
-    private static final String EXTRA_SLIDER_POSITION = "position";
-    public static final String EXTRA_SLIDER_POSITION_VALUE = "position_value";
+        sSupportedSliderRingModes.put(Constants.KEY_VALUE_TOTAL_SILENCE, AudioManager.RINGER_MODE_NORMAL);
+        sSupportedSliderRingModes.put(Constants.KEY_VALUE_SILENT, AudioManager.RINGER_MODE_SILENT);
+        sSupportedSliderRingModes.put(Constants.KEY_VALUE_PRIORTY_ONLY, AudioManager.RINGER_MODE_NORMAL);
+        sSupportedSliderRingModes.put(Constants.KEY_VALUE_VIBRATE, AudioManager.RINGER_MODE_VIBRATE);
+        sSupportedSliderRingModes.put(Constants.KEY_VALUE_NORMAL, AudioManager.RINGER_MODE_NORMAL);
+    }
 
     public static final String CLIENT_PACKAGE_NAME = "com.oneplus.camera";
     public static final String CLIENT_PACKAGE_PATH = "/data/misc/lineage/client_package_name";
 
-    // Vibration effects
-    private static final VibrationEffect MODE_NORMAL_EFFECT =
-            VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK);
-    private static final VibrationEffect MODE_VIBRATION_EFFECT =
-            VibrationEffect.get(VibrationEffect.EFFECT_DOUBLE_CLICK);
-
     private final Context mContext;
+    private final NotificationManager mNotificationManager;
     private final AudioManager mAudioManager;
-    private final Vibrator mVibrator;
+    private Vibrator mVibrator;
     private boolean mDispOn;
     private ClientPackageNameObserver mClientObserver;
     private IOnePlusCameraProvider mProvider;
@@ -86,8 +88,13 @@ public class KeyHandler implements DeviceKeyHandler {
         mContext = context;
         mDispOn = true;
 
+        mNotificationManager
+                = mContext.getSystemService(NotificationManager.class);
         mAudioManager = mContext.getSystemService(AudioManager.class);
         mVibrator = mContext.getSystemService(Vibrator.class);
+        if (mVibrator == null || !mVibrator.hasVibrator()) {
+            mVibrator = null;
+        }
         IntentFilter systemStateFilter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         systemStateFilter.addAction(Intent.ACTION_SCREEN_OFF);
         mContext.registerReceiver(mSystemStateReceiver, systemStateFilter);
@@ -99,35 +106,56 @@ public class KeyHandler implements DeviceKeyHandler {
         }
     }
 
+    private boolean hasSetupCompleted() {
+        return Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.USER_SETUP_COMPLETE, 0) != 0;
+    }
+
     public KeyEvent handleKeyEvent(KeyEvent event) {
-        if (event.getAction() != KeyEvent.ACTION_DOWN) {
+        int scanCode = event.getScanCode();
+        String keyCode = Constants.sKeyMap.get(scanCode);
+
+        int keyCodeValue = 0;
+        try {
+            keyCodeValue = Constants.getPreferenceInt(mContext, keyCode);
+        } catch (Exception e) {
             return event;
         }
 
-        int scanCode = event.getScanCode();
+        if (!hasSetupCompleted()) {
+            return event;
+        }
 
-        int position = 0;
+        // We only want ACTION_UP event
+        if (event.getAction() != KeyEvent.ACTION_UP) {
+            return null;
+        }
+
+        mAudioManager.setRingerModeInternal(sSupportedSliderRingModes.get(keyCodeValue));
+        mNotificationManager.setZenMode(sSupportedSliderZenModes.get(keyCodeValue), null, TAG);
+        int position = scanCode == 601 ? 2 : scanCode == 602 ? 1 : 0;
+        doHapticFeedback();
+
         int positionValue = 0;
-        switch (scanCode) {
-            case MODE_NORMAL:
-                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_NORMAL);
-                position = 2;
-                positionValue = MODE_RING;
-                doHapticFeedback(MODE_NORMAL_EFFECT);
+        int key = sSupportedSliderRingModes.keyAt(
+                sSupportedSliderRingModes.indexOfKey(keyCodeValue));
+        switch (key) {
+            case Constants.KEY_VALUE_TOTAL_SILENCE:
+                positionValue = Constants.MODE_TOTAL_SILENCE;
                 break;
-            case MODE_VIBRATION:
-                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_VIBRATE);
-                position = 1;
-                positionValue = MODE_VIBRATE;
-                doHapticFeedback(MODE_VIBRATION_EFFECT);
+            case Constants.KEY_VALUE_SILENT:
+                positionValue = Constants.MODE_SILENT;
                 break;
-            case MODE_SILENCE:
-                mAudioManager.setRingerModeInternal(AudioManager.RINGER_MODE_SILENT);
-                position = 0;
-                positionValue = MODE_SILENT;
+            case Constants.KEY_VALUE_PRIORTY_ONLY:
+                positionValue = Constants.MODE_PRIORITY_ONLY;
+                break;
+            case Constants.KEY_VALUE_VIBRATE:
+                positionValue = Constants.MODE_VIBRATE;
                 break;
             default:
-                return event;
+                case Constants.KEY_VALUE_NORMAL:
+                    positionValue = Constants.MODE_RING;
+                    break;
         }
 
         sendUpdateBroadcast(position, positionValue);
@@ -136,19 +164,20 @@ public class KeyHandler implements DeviceKeyHandler {
     }
 
     private void sendUpdateBroadcast(int position, int position_value) {
-        Intent intent = new Intent(ACTION_UPDATE_SLIDER_POSITION);
-        intent.putExtra(EXTRA_SLIDER_POSITION, position);
-        intent.putExtra(EXTRA_SLIDER_POSITION_VALUE, position_value);
+        Intent intent = new Intent(Constants.ACTION_UPDATE_SLIDER_POSITION);
+        intent.putExtra(Constants.EXTRA_SLIDER_POSITION, position);
+        intent.putExtra(Constants.EXTRA_SLIDER_POSITION_VALUE, position_value);
         mContext.sendBroadcastAsUser(intent, UserHandle.CURRENT);
         intent.setFlags(Intent.FLAG_RECEIVER_REGISTERED_ONLY);
         Log.d(TAG, "slider change to positon " + position
                 + " with value " + position_value);
     }
 
-    private void doHapticFeedback(VibrationEffect effect) {
-        if (mVibrator != null && mVibrator.hasVibrator()) {
-            mVibrator.vibrate(effect);
+    private void doHapticFeedback() {
+        if (mVibrator == null) {
+            return;
         }
+        mVibrator.vibrate(50);
     }
 
     private void onDisplayOn() {

@@ -13,7 +13,7 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-package org.lineageos.settings.device;
+package org.lineageos.device.DeviceSettings;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
