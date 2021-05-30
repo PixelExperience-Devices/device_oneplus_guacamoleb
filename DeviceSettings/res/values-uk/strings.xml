@@ -32,4 +32,8 @@
     <!-- Log Tile -->
     <string name="quick_settings_log_tile_dialog_title">Опції</string>
     <string name="cannot_get_su">Дію не виконано через відсутність прав суперкористувача</string>
+
+    <!-- Dolby -->
+    <string name="audio_title">Звук</string>
+    <string name="dolby_title">Dolby Atmos</string>
 </resources>

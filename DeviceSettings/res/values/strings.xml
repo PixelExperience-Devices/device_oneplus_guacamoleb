@@ -32,4 +32,8 @@
     <string name="quick_settings_log_tile_label">LogTile</string>
     <string name="quick_settings_log_tile_dialog_title">Options</string>
     <string name="cannot_get_su">Action failed because of missing superuser access</string>
+
+    <!-- Dolby -->
+    <string name="audio_title">Audio</string>
+    <string name="dolby_title">Dolby Atmos</string>
 </resources>
