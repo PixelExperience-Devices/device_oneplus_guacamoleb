@@ -30,7 +30,8 @@
             android:summary="@string/dolby_summary"
             android:icon="@drawable/ic_dolby_atmos"
             android:dependency="enable_dolby_atmos"
-            android:persistent="false">
+            android:defaultValue="false"
+            android:persistent="false" />
             <intent
                  android:targetPackage="com.oneplus.sound.tuner"
                  android:targetClass="com.oneplus.sound.tuner.panoramic.DolbyPanoramicSoundActivity" />
@@ -103,5 +104,4 @@
           android:entries="@array/notification_slider_action_entries"
           android:entryValues="@array/notification_slider_action_entry_values" />
     </PreferenceCategory>
-    
 </PreferenceScreen>
