@@ -1,4 +1,5 @@
 allow priv_app hal_cameraHIDL_hwservice:hwservice_manager { find };
+allow priv_app oem_service:service_manager { find };
 allow priv_app vendor_sysfs_battery_supply:dir { search };
 allow priv_app vendor_sysfs_battery_supply:file { read write getattr open };
 allow priv_app vendor_sysfs_kgsl:file { read getattr open };
