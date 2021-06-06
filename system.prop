@@ -50,6 +50,9 @@ ro.hwui.text_small_cache_width=1024
 ro.hwui.texture_cache_flushrate=0.4
 ro.hwui.texture_cache_size=72
 
+# ims
+persist.vendor.ims.disableADBLogs=1
+
 # IO Prefetcher
 vendor.iop.enable_uxe=0
 
