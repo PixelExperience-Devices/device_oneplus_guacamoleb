@@ -56,6 +56,7 @@ vendor.iop.enable_uxe=0
 # Media
 av.offload.enable=true
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+ro.vendor.qti.va_aosp.support=1
 vendor.swvdec.log.level=1
 vendor.vidc.debug.level=1
 
