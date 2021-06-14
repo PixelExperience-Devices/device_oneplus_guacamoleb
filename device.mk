@@ -346,6 +346,10 @@ PRODUCT_PACKAGES += \
     vendor.nxp.nxpese@1.0:64 \
     vendor.nxp.nxpnfc@1.0:64
 
+# NoCutout
+PRODUCT_PACKAGES += \
+    NoCutoutOverlay
+
 # OnePlus apps
 $(call inherit-product, vendor/oneplus/apps/config.mk)
 
