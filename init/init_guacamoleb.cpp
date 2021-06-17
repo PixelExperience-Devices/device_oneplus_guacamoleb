@@ -93,4 +93,7 @@ void vendor_load_properties()
 
     property_override("vendor.boot.prj_version", std::to_string(prj_version).c_str());
     property_override_dual("vendor.rf.version", "vendor.boot.rf_version", std::to_string(rf_version).c_str());
+
+    std::string serialno = android::base::GetProperty("ro.serialno", "");
+    property_override("ro.vendor.serialno", serialno.c_str());
 }
