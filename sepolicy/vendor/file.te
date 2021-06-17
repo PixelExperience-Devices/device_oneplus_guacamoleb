@@ -20,6 +20,7 @@ type vl53l1_socket, file_type;
 
 # sysfs
 type sysfs_aod, sysfs_type, fs_type;
+type sysfs_display_mode, fs_type, sysfs_type;
 type sysfs_dtb_model, sysfs_type, fs_type;
 type sysfs_fod, sysfs_type, fs_type;
 type sysfs_fpc, sysfs_type, fs_type;
