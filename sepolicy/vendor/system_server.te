@@ -1,2 +1,5 @@
 allow system_server hal_cameraHIDL_hwservice:hwservice_manager find;
 binder_call(system_server, hal_cameraHIDL_default)
+
+allow system_server proc_touchpanel:file { ioctl read write getattr lock append map open watch watch_reads };
+allow system_server proc_touchpanel:dir { search };
