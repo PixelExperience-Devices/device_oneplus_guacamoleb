@@ -110,4 +110,6 @@ void vendor_load_properties()
     property_override("ro.vendor.serialno", serialno.c_str());
 
     property_override("ro.build.product", "OnePlus7");
+    property_override("ro.build.real_device", "true");
+    property_override("ro.build.release_type", "release");
 }

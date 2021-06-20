@@ -142,6 +142,8 @@ ro.camera.notify_nfc=1
 ro.hardware.nfc_nci=nqx.default
 
 # OnePlus
+ro.vendor.build.real.device=true
+ro.vendor.build.release_type=release
 vendor.product.device=guacamoleb
 vendor.product.manufacturer=OPD
 
