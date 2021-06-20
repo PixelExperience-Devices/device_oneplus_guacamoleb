@@ -59,6 +59,8 @@ void property_override_dual(char const system_prop[],
 void vendor_load_properties()
 {
     property_override_dual("ro.build.type", "ro.vendor.build.type", "user");
+    property_override_dual("ro.odm.build.type", "ro.product.build.type", "user");
+    property_override_dual("ro.system.build.type", "ro.system_ext.build.type", "user");
     property_override("ro.boot.verifiedbootstate", "green");
 
     int prj_version = stoi(android::base::GetProperty("ro.boot.prj_version", ""));
