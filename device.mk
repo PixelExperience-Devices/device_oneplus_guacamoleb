@@ -380,6 +380,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     oneplus-fwk.oneplus_msmnile
 
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.sys.oneplus.support=11.13.1
+
 # OPFeature
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/odm_feature_list:$(TARGET_COPY_OUT_ODM)/etc/odm_feature_list
