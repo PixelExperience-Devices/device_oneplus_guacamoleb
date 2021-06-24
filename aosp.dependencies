@@ -14,7 +14,7 @@
   {
     "repository"  : "vendor_oneplus_guacamoleb",
     "target_path" : "vendor/oneplus/guacamoleb",
-    "branch"      : "eleven",
+    "branch"      : "eleven-wip",
     "remote"      : "pixel-devices-blobs"
   },
   {
