@@ -11,15 +11,76 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="audio"
+        android:title="@string/audio_title">
+
+        <SwitchPreference
+            android:key="enable_dolby_atmos"
+            android:summary="@string/enable_dolby_summary"
+            android:title="@string/enable_dolby_title"
+            android:icon="@drawable/ic_dolby"
+            android:defaultValue="false"
+            android:persistent="false" />
+
+        <Preference
+            android:key="audio_dolby_atmos"
+            android:title="@string/dolby_title"
+            android:summary="@string/dolby_summary"
+            android:icon="@drawable/ic_dolby_atmos"
+            android:dependency="enable_dolby_atmos"
+            android:persistent="false">
+            <intent
+                 android:targetPackage="com.oneplus.sound.tuner"
+                 android:targetClass="com.oneplus.sound.tuner.panoramic.DolbyPanoramicSoundActivity" />
+        </Preference>
+
+        <Preference
+            android:icon="@drawable/ic_info"
+            android:persistent="false"
+            android:summary="@string/enable_dolby_info" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:key="graphics"
+        android:title="@string/display_title">
+
+        <SwitchPreference
+            android:key="dc"
+            android:icon="@drawable/ic_dc_mode_icon"
+            android:summary="@string/dc_mode_summary"
+            android:title="@string/dc_mode_title" />
+
+        <SwitchPreference
+            android:key="hbm"
+            android:icon="@drawable/ic_hbm_mode_icon"
+            android:summary="@string/hbm_mode_summary"
+            android:title="@string/hbm_mode_title"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="auto_hbm"
+            android:icon="@drawable/ic_autohbm_mode_icon"
+            android:summary="@string/auto_hbm_summary"
+            android:title="@string/auto_hbm_title" />
+
+        <org.aosp.device.DeviceSettings.AutoHBMThresholdPreference
+            android:key="auto_hbm_threshold"
+            android:title="@string/auto_hbm_threshold_title"
+            android:summary="@string/auto_hbm_threshold_summary" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:key="slider"
         android:title="@string/notification_slider_category_title">
 
         <ListPreference
             android:key="keycode_top_position"
+            android:icon="@drawable/ic_up_icon"
             android:dialogTitle="@string/notification_slider_selection_dialog_title"
             android:title="@string/notification_slider_top_position"
-            android:icon="@drawable/ic_up_icon"
             android:summary="%s"
             android:entries="@array/notification_slider_action_entries"
             android:entryValues="@array/notification_slider_action_entry_values" />
@@ -34,25 +95,13 @@
             android:entryValues="@array/notification_slider_action_entry_values" />
 
         <ListPreference
-            android:key="keycode_bottom_position"
-            android:icon="@drawable/ic_down_icon"
-            android:dialogTitle="@string/notification_slider_selection_dialog_title"
-            android:title="@string/notification_slider_bottom_position"
-            android:summary="%s"
-            android:entries="@array/notification_slider_action_entries"
-            android:entryValues="@array/notification_slider_action_entry_values" />
+          android:key="keycode_bottom_position"
+          android:icon="@drawable/ic_down_icon"
+          android:dialogTitle="@string/notification_slider_selection_dialog_title"
+          android:title="@string/notification_slider_bottom_position"
+          android:summary="%s"
+          android:entries="@array/notification_slider_action_entries"
+          android:entryValues="@array/notification_slider_action_entry_values" />
     </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="audio"
-        android:title="@string/audio_title">
-        <Preference
-            android:key="audio_dolby_atmos"
-            android:title="@string/dolby_title"
-            android:icon="@drawable/ic_dolby_atmos">
-            <intent
-                 android:targetPackage="com.oneplus.sound.tuner"
-                 android:targetClass="com.oneplus.sound.tuner.panoramic.DolbyPanoramicSoundActivity" />
-        </Preference>
-    </PreferenceCategory>
+    
 </PreferenceScreen>

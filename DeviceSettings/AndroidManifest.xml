@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2014-2015 The CyanogenMod Project
-     Copyright (C) 2018 The LineageOS Project
-
+     Copyright (C) 2017 The LineageOS Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
-
           http://www.apache.org/licenses/LICENSE-2.0
-
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,20 +13,20 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
           android:sharedUserId="android.uid.system"
-          package="org.lineageos.device.DeviceSettings"
-          android:versionCode="1"
-          android:versionName="1.0" >
+          package="org.aosp.device.DeviceSettings"
+          android:versionCode="11"
+          android:versionName="eleven" >
 
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
-    <protected-broadcast android:name=">org.lineageos.device.DeviceSettings.UPDATE_SLIDER_POSITION" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-sdk
-        android:minSdkVersion="24" />
+        android:minSdkVersion="28"
+        android:targetSdkVersion="29" />
 
     <application
         android:icon="@drawable/ic_settings_device"
@@ -56,10 +53,27 @@
         <activity android:name=".DeviceSettings" />
         <activity android:name=".KeyHandler" />
 
+        <receiver android:name="org.aosp.device.DeviceSettings.Startup" >
+            <intent-filter android:priority="100" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Quick Settings Tiles -->
         <service
-            android:name="org.lineageos.device.DeviceSettings.LogTile"
-            android:icon="@drawable/ic_qs_log"
-            android:label="@string/quick_settings_log_tile_label"
+            android:name="org.aosp.device.DeviceSettings.DCModeTileService"
+            android:icon="@drawable/ic_dc_tile"
+            android:label="@string/tile_dc_mode"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="org.aosp.device.DeviceSettings.HBMModeTileService"
+            android:icon="@drawable/ic_hbm_tile"
+            android:label="@string/tile_hbm_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action
@@ -67,10 +81,13 @@
             </intent-filter>
         </service>
 
-        <!-- Search Provider -->
+        <!-- Auto HBM service -->
+        <service android:name="org.aosp.device.DeviceSettings.AutoHBMService" />
+
+        <!-- Search indexing -->
         <provider
             android:name=".ConfigPanelSearchIndexablesProvider"
-            android:authorities="org.lineageos.device"
+            android:authorities="org.aosp.device"
             android:multiprocess="false"
             android:grantUriPermissions="true"
             android:permission="android.permission.READ_SEARCH_INDEXABLES"
