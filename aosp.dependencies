@@ -1,7 +1,13 @@
 [
   {
-    "repository"  : "kernel_oneplus_guacamoleb",
+    "repository"  : "baalajimaestro/kernel_oneplus_sm8150",
     "target_path" : "kernel/oneplus/guacamoleb",
+    "branch"      : "Rika-new",
+    "remote"      : "github"
+  },
+  {
+    "repository"  : "kernel_xiaomi_davinci-headers",
+    "target_path" : "kernel/oneplus/sm8150-headers",
     "branch"      : "eleven",
     "remote"      : "pixel-devices"
   },
