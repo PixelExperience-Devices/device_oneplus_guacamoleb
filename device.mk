@@ -12,9 +12,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/oneplus/guacamoleb/guacamoleb-vendor.mk)
 
-# Translations
-$(call inherit-product-if-exists, vendor/translations/config.mk)
-
 # Call oneplus firmware
 $(call inherit-product-if-exists, vendor/oneplus/firmware/Android.mk)
 
