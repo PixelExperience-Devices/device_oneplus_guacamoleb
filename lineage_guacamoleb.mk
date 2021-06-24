@@ -32,8 +32,8 @@ TARGET_SCREEN_WIDTH := 1080
 # Build info
 BUILD_FINGERPRINT := "google/coral/coral:11/RQ3A.210605.005/7349499:user/release-keys"
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_DEVICE=OnePlus7 \
-    PRODUCT_NAME=OnePlus7 \
+    PRODUCT_DEVICE=guacamoleb \
+    PRODUCT_NAME=guacamoleb \
     PRIVATE_BUILD_DESC="OnePlus7-user 11   release-keys"
 
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
