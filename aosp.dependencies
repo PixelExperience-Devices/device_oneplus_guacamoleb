@@ -34,5 +34,10 @@
     "target_path" : "vendor/oneplus/apps",
     "branch"      : "eleven",
     "remote"      : "gitlab"
-  }, 
+  },
+  {
+    "repository"  : "kdrag0n/proton-clang",
+    "target_path" : "prebuilts/clang/host/linux-x86/clang-proton",
+    "branch"      : "master"
+  }
 ]
