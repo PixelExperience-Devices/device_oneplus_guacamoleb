@@ -24,20 +24,15 @@
     "remote"      : "pixel-devices-blobs"
   },
   {
-    "repository"  : "vendor_oneplus-firmware",
-    "target_path" : "vendor/oneplus/firmware",
-    "branch"      : "eleven",
-    "remote"      : "pixel-devices-blobs"
-  }, 
-  {
     "repository"  : "Hikari-no-Tenshi/android_vendor_oneplus_apps",
     "target_path" : "vendor/oneplus/apps",
-    "branch"      : "eleven",
+    "branch"      : "11.0",
     "remote"      : "gitlab"
   },
   {
     "repository"  : "kdrag0n/proton-clang",
     "target_path" : "prebuilts/clang/host/linux-x86/clang-proton",
-    "branch"      : "master"
+    "branch"      : "master",
+    "remote"      : "github"
   }
 ]
