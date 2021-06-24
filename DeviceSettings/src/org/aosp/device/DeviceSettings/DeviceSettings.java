@@ -106,6 +106,9 @@ public class DeviceSettings extends PreferenceFragment
         mAutoHBMSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_AUTO_HBM_SWITCH, false));
         mAutoHBMSwitch.setOnPreferenceChangeListener(this);
         mDolbySwitch = new DolbySwitch(this.getContext());
+        mEnableDolbyAtmos = (TwoStatePreference) findPreference(KEY_ENABLE_DOLBY_ATMOS);
+        mEnableDolbyAtmos.setChecked(mDolbySwitch.isCurrentlyEnabled());
+        mEnableDolbyAtmos.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -123,7 +126,6 @@ public class DeviceSettings extends PreferenceFragment
         }
         else if (preference == mEnableDolbyAtmos) {
             mDolbySwitch.setEnabled((Boolean) newValue);
-        }
         }
         else {
             Constants.setPreferenceInt(getContext(), preference.getKey(), Integer.parseInt((String) newValue));
