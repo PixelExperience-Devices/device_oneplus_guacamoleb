@@ -1,12 +1,12 @@
 [
   {
-    "repository"  : "baalajimaestro/kernel_oneplus_sm8150",
+    "repository"  : "kernel_oneplus_guacamoleb",
     "target_path" : "kernel/oneplus/guacamoleb",
-    "branch"      : "Rika-new",
-    "remote"      : "github"
+    "branch"      : "eleven",
+    "remote"      : "pixel-devices"
   },
   {
-    "repository"  : "kernel_xiaomi_davinci-headers",
+    "repository"  : "kernel_oneplus_guacamoleb-headers",
     "target_path" : "kernel/oneplus/sm8150-headers",
     "branch"      : "eleven",
     "remote"      : "pixel-devices"
@@ -14,7 +14,7 @@
   {
     "repository"  : "vendor_oneplus_guacamoleb",
     "target_path" : "vendor/oneplus/guacamoleb",
-    "branch"      : "eleven-wip",
+    "branch"      : "eleven",
     "remote"      : "pixel-devices-blobs"
   },
   {
@@ -30,9 +30,9 @@
     "remote"      : "pixel-devices-blobs"
   },
   {
-    "repository"  : "Hikari-no-Tenshi/android_vendor_oneplus_apps",
+    "repository"  : "baalajimaestro/vendor_oneplus_apps",
     "target_path" : "vendor/oneplus/apps",
-    "branch"      : "11.0",
+    "branch"      : "Rika",
     "remote"      : "gitlab"
   },
   {
