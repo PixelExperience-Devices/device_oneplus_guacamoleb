@@ -260,6 +260,15 @@ PRODUCT_PACKAGES += \
     vendor.oneplus.fingerprint.extension@1.0.vendor \
     vendor.oneplus.hardware.display@1.0.vendor
 
+# FOSS Config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/FOSSConfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/FOSSConfig.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.display.foss=1 \
+    vendor.display.foss.config=1 \
+    vendor.display.foss.config_path=/vendor/etc/FOSSConfig.xml
+    
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \
