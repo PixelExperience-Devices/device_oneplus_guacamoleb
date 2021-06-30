@@ -410,10 +410,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/odm_feature_list:$(TARGET_COPY_OUT_ODM)/etc/odm_feature_list
 
-# OPScreenRecorder
-PRODUCT_PACKAGES += \
-    OPScreenRecorder
-
 # Perf
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.0.vendor \
