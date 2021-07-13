@@ -39,7 +39,6 @@ TARGET_INCLUDE_STOCK_ARCORE := true
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
 
 # Build info
-BUILD_FINGERPRINT := "google/coral/coral:11/RQ3A.210705.001/7380771:user/release-keys"
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_DEVICE=guacamoleb \
     PRODUCT_NAME=guacamoleb \
