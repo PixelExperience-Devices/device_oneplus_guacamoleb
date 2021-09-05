@@ -9,6 +9,9 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 DEVICE_PATH := device/oneplus/guacamoleb
 
+# Treble
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+
 # A/B
 AB_OTA_UPDATER := true
 
