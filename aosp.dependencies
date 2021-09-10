@@ -36,9 +36,9 @@
     "remote"      : "gitlab"
   },
   {
-    "repository"  : "kdrag0n/proton-clang",
-    "target_path" : "prebuilts/clang/host/linux-x86/clang-proton",
+    "repository"  : "baalajimaestro/aosp-clang",
+    "target_path" : "prebuilts/clang/host/linux-x86/clang-master",
     "branch"      : "master",
-    "remote"      : "github"
+    "remote"      : "gitlab"
   }
 ]
