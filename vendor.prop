@@ -74,10 +74,15 @@ dalvik.vm.heaptargetutilization=0.75
 pm.dexopt.boot=verify
 pm.dexopt.first-boot=verify
 pm.dexopt.install=speed-profile
+pm.dexopt.bg-dexopt=speed
 dalvik.vm.image-dex2oat-filter=speed
 dalvik.vm.image-dex2oat-threads=8
+dalvik.vm.minidebuginfo=false
+dalvik.vm.dex2oat-minidebuginfo=false
+dalvik.vm.boot-dex2oat-cpu-set=0,1,2,3,4,5,6,7
+dalvik.vm.dex2oat-cpu-set=0,1,2,3
 dalvik.vm.dex2oat-filter=speed
-dalvik.vm.dex2oat-threads=8
+dalvik.vm.dex2oat-threads=4
 dalvik.vm.dex2oat64.enabled=true
 
 # Display
