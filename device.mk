@@ -407,10 +407,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.sys.oneplus.support=11.13.1
 
-# OPFeature
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/odm_feature_list:$(TARGET_COPY_OUT_ODM)/etc/odm_feature_list
-
 # Perf
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.0.vendor \

@@ -788,6 +788,9 @@ vendor/lib64/nfc_nci_nxp.so
 vendor/lib64/nfc_nci_nxp.so
 vendor/lib64/vendor.nxp.eventprocessor@1.0.so
 
+# ODM feature list
+odm/etc/odm_feature_list
+
 # OMX
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
