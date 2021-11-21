@@ -95,9 +95,6 @@ on charger && property:ro.boot.type=auto
     symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f1
     write /config/usb_gadget/g1/UDC ${sys.usb.controller}
 
-on init
-    exec u:r:vendor-qti-testscripts:s0 -- /vendor/bin/sh /vendor/bin/init.qti.usb.debug.sh
-
 on boot
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
     mount configfs none /config

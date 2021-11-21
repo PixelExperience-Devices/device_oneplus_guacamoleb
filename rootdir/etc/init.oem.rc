@@ -738,30 +738,6 @@ service vl53l1_daemon_main /vendor/bin/vl53l1_daemon_main
     socket vl53l1_daemon stream 660 system system
 #endif
 
-#oscar.wei@SYSTEM, 2019/10/02, [AN-604] opdiagnose porting : create opdiagnose service
-service opdiagnose /system_ext/bin/OPDiagnoseservice
-    class core
-    user root
-    group system
-
-service opdiagdatacopy /system_ext/bin/OPDiagdataCopy
-    class core
-    user root
-    group system everybody
-    oneshot
-    disabled
-
-on property:vendor.copy.opdiagnose.data=1
-    start opdiagdatacopy
-
-service copy_qxdm_log /system_ext/bin/OPDiagdataCopy -q ${copy.qxdm.log}
-    class core
-    user root
-    group system everybody
-    oneshot
-    disabled
-#endif
-
 #ifdef VENDOR_EDIT
 #kim@bsp 2019/10/25 add to fix apsd wrong issue when boot with dash connected
 on property:sys.boot_completed=1
