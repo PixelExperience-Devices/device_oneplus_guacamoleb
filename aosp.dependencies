@@ -32,7 +32,7 @@
   {
     "repository"  : "baalajimaestro/aosp-clang",
     "target_path" : "prebuilts/clang/host/linux-x86/clang-master",
-    "branch"      : "master",
+    "branch"      : "clang-r428724",
     "remote"      : "gitlab"
   }
 ]
