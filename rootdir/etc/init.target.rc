@@ -85,10 +85,6 @@ on post-fs
     #miao.guom@system Bug35643 mkdir recovery
     # mkdir /op2/recovery 0770 root system
     mkdir /mnt/vendor/op2/recovery 0770 root system
-    # ifdef vendor_edit remove SPU
-    # start vendor.spdaemon
-    # start vendor.sec_nvm
-    # endif vendor_edit
 
 on late-fs
     wait_for_prop hwservicemanager.ready true
@@ -245,17 +241,6 @@ on charger
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
 
-service vendor.spdaemon /vendor/bin/spdaemon
-    class core
-    user system
-    group system
-    shutdown critical
-
-service vendor.sec_nvm /vendor/bin/sec_nvm
-    class core
-    user system
-    group system
-
 service vendor.thermal-engine /vendor/bin/thermal-engine
    class main
    user system
@@ -291,12 +276,6 @@ service cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
     group system wifi inet sdcard_rw media_rw diag
     # bingham.fang@Connectivity, 2019/05/23, add for wlan logs function
     disabled
-    oneshot
-
-service vendor.energy-awareness /vendor/bin/energy-awareness
-    class main
-    user system
-    group system
     oneshot
 
 service dcvs-sh /vendor/bin/init.qti.dcvs.sh
