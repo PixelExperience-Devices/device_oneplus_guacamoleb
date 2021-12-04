@@ -1139,6 +1139,24 @@ vendor/bin/time_daemon
 vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
 
+# Touchpanel firmware
+vendor/firmware/tp/FW_18821_SY761.bin
+vendor/firmware/tp/FW_18857_S3706.img
+vendor/firmware/tp/FW_18865_S3706.img
+vendor/firmware/tp/FW_18865_S3706_NEW.img
+vendor/firmware/tp/FW_19801_SY761.bin
+vendor/firmware/tp/FW_19801_SY761_NEW.bin
+vendor/firmware/tp/FW_19861_SY761.bin
+vendor/firmware/tp/FW_19861_SY761_NEW.bin
+vendor/firmware/tp/LIMIT_18821_SY761.img
+vendor/firmware/tp/LIMIT_18857_S3706.img
+vendor/firmware/tp/LIMIT_18865_S3706.img
+vendor/firmware/tp/LIMIT_18865_S3706_NEW.img
+vendor/firmware/tp/LIMIT_19801_SY761.img
+vendor/firmware/tp/LIMIT_19801_SY761_NEW.img
+vendor/firmware/tp/LIMIT_19861_SY761.img
+vendor/firmware/tp/LIMIT_19861_SY761_NEW.img
+
 # Trusted Execution Environment connector
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
 vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
