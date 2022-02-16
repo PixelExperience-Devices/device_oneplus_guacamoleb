@@ -90,6 +90,7 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_guacamoleb
 BOARD_BOOT_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := \
+    androidboot.boot_devices=soc/1d84000.ufshc \
     androidboot.console=ttyMSM0 \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
