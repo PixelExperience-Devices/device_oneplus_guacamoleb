@@ -108,7 +108,7 @@ BOARD_RAMDISK_USE_LZ4 := true
 TARGET_KERNEL_ADDITIONAL_FLAGS += \
     CONFIG_INITRAMFS_IGNORE_SKIP_FLAG=y \
     CONFIG_PROC_CMDLINE_APPEND_ANDROID_FORCE_NORMAL_BOOT=y
-TARGET_KERNEL_CONFIG := vendor/sm8150-perf_defconfig
+TARGET_KERNEL_CONFIG := vendor/sm8150-perf_defconfig vendor/debugfs.config
 TARGET_KERNEL_SOURCE := kernel/oneplus/guacamoleb
 
 # Platform
