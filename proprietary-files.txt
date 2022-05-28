@@ -1117,6 +1117,10 @@ vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
+# Vibrator HAL from OnePlus7-user 10 QKQ1.190716.003 2101212213 release-keys  
+vendor/lib64/hw/vibrator.default.so|f4b09524bbd1b4c7a91191d5793ae000e3cde0af
+vendor/lib/hw/vibrator.default.so|978124791e0ede0b043e4649130de86790735cbd
+
 # VPP
 vendor/bin/vppservice
 vendor/etc/configstore/vpp.configstore.xml
