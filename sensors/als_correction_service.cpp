@@ -53,8 +53,8 @@ void updateScreenBuffer() {
         captureArgs.displayToken = SurfaceComposerClient::getInternalDisplayToken();
         captureArgs.pixelFormat = PixelFormat::RGBA_8888;
         captureArgs.sourceCrop = Rect(
-                ALS_POS_X - ALS_RADIUS, ALS_POS_Y - ALS_RADIUS,
-                ALS_POS_X + ALS_RADIUS, ALS_POS_Y + ALS_RADIUS);
+                645 - ALS_RADIUS, 205 - ALS_RADIUS,
+                645 + ALS_RADIUS, 205 + ALS_RADIUS);
         captureArgs.width = ALS_RADIUS * 2;
         captureArgs.height = ALS_RADIUS * 2;
         captureArgs.useIdentityTransform = true;
