@@ -79,6 +79,36 @@ void load_dalvikvm_properties() {
 }
 
 void vendor_load_properties() {
+  int project_name = stoi(android::base::GetProperty("ro.boot.project_name", ""));
+  int rf_version = stoi(android::base::GetProperty("ro.boot.rf_version", ""));
+  switch(project_name){
+    case 18857:
+      /* OnePlus 7 */
+      switch (rf_version){
+        case 1:
+          /* China */
+          property_override("ro.product.model", "GM1900");
+          break;
+        case 3:
+          /* India*/
+          property_override("ro.product.model", "GM1901");
+          break;
+        case 4:
+          /* Europe */
+          property_override("ro.product.model", "GM1903");
+          break;
+        case 5:
+          /* Global / US Unlocked */
+          property_override("ro.product.model", "GM1905");
+          break;
+        default:
+          /* Generic */
+          property_override("ro.product.model", "GM1905");
+          break;
+      }
+      break;
+    }
+
   // dalvikvm props
   load_dalvikvm_properties();
 }
