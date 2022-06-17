@@ -1,0 +1,26 @@
+[
+  {
+    "repository"  : "kernel_oneplus_guacamoleb",
+    "target_path" : "kernel/oneplus/guacamoleb",
+    "branch"      : "twelve",
+    "remote"      : "pixel-devices"
+  },
+  {
+    "repository"  : "shantanu-sarkar/hardware_oneplus",
+    "target_path" : "hardware/oneplus",
+    "branch"      : "twelve",
+    "remote"      : "github"
+  },
+  {
+    "repository"  : "vendor_oneplus_guacamoleb",
+    "target_path" : "vendor/oneplus/guacamoleb",
+    "branch"      : "twelve",
+    "remote"      : "pixel-devices-blobs"
+  },
+  {
+    "repository"  : "vendor_oneplus_apps_guacamoleb",
+    "target_path" : "vendor/oneplus/apps/guacamoleb",
+    "branch"      : "twelve",
+    "remote"      : "pixel-devices-blobs"
+  }
+]
