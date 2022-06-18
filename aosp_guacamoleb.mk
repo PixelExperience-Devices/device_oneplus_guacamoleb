@@ -29,3 +29,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=OnePlus7 \
     TARGET_PRODUCT=OnePlus7
+
+# Extra Google/Pixel features
+TARGET_SUPPORTS_QUICK_TAP := true
