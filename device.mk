@@ -360,6 +360,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     oneplus-fwk
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RECOVERY)/first_stage_ramdisk/fstab.qcom
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
