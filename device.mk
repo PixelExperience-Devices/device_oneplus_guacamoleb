@@ -4,6 +4,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# AAPT
+PRODUCT_AAPT_CONFIG := xxhdpi
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -66,6 +70,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_ODM)/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/audio/audio_policy_configuration_a2dp_offload_disabled.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration_a2dp_offload_disabled.xml \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/etc/mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_ODM)/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_ODM)/etc/sound_trigger_platform_info.xml
 
@@ -96,6 +101,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2240
+TARGET_SCREEN_WIDTH := 1080
 
 # Boot control
 PRODUCT_PACKAGES += \
@@ -221,6 +230,7 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
+    fstab.qcom \
     init.class_main.sh \
     init.oplus.rc \
     init.oplus.sh \
@@ -315,7 +325,10 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
     FrameworksResTarget \
-    OPlusFrameworksResCommon
+    OPlusFrameworksResCommon \
+    OPlusFrameworksResTarget \
+    OPlusSettingsProviderResTarget \
+    OPlusSystemUIResTarget
 
 # Power
 PRODUCT_PACKAGES += \
@@ -363,6 +376,9 @@ PRODUCT_COPY_FILES += \
 # Servicetracker
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.servicetracker@1.0.vendor
+
+# Shipping API
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -462,4 +478,4 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 
 # Inherit from the proprietary files makefile.
-$(call inherit-product, vendor/oneplus/sm8150-common/sm8150-common-vendor.mk)
+$(call inherit-product, vendor/oneplus/guacamoleb/guacamoleb-vendor.mk)
