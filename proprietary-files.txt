@@ -1626,6 +1626,7 @@ odm/lib64/libwvhidl.so
 vendor/lib64/libtrustedapploader.so
 
 # WiFi
+odm/bin/init.oplus.wifi.sh
 odm/etc/wifi/bdwlan.57
 odm/etc/wifi/init.project.wifi.sh
 odm/vendor/etc/wifi/WCNSS_qcom_cfg.ini
