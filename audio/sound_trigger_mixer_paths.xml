@@ -232,8 +232,8 @@
     <!--ifdef  #modified by lifei for SVA in 20181125-->
     <!-- OP_FEATURE_MM_SVA-->
     <path name="listen-cpe-handset-mic">
-        <ctl name="MAD Input" value="ADC1" />
-        <ctl name="ADC1 Volume" value="12" />
+        <ctl name="MAD Input" value="ADC4" />
+        <ctl name="ADC4 Volume" value="12" />
         <!--ctl name="MAD Input" value="DMIC2" / up left mic-->
         <ctl name="MAD_SEL MUX" value="SPE" />
         <ctl name="MAD_INP MUX" value="MAD" />
@@ -367,8 +367,8 @@
         <ctl name="SLIM_1_TX Channels" value="One" />
         <ctl name="CDC_IF TX4 MUX" value="DEC4" />
         <ctl name="ADC MUX4" value="AMIC" />
-        <ctl name="AMIC MUX4" value="ADC1" />
-        <ctl name="ADC1 Volume" value="4" />
+        <ctl name="AMIC MUX4" value="ADC4" />
+        <ctl name="ADC4 Volume" value="4" />
         <!--ctl name="CDC_IF TX0 MUX" value="DEC0" />
         <ctl name="ADC MUX0" value="AMIC" />
         <ctl name="AMIC MUX0" value="ADC3" />

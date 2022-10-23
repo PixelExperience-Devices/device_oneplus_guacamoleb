@@ -168,7 +168,7 @@
         <param key="spkr_1_tz_name" value="wsatz.13"/>
         <param key="spkr_2_tz_name" value="wsatz.14"/>
         <param key="PHONE_MIC_LOOPBACK" value="SLIMBUS_0 Hostless"/>
-        <param key="oplus_mic_count" value="3"/>
+        <param key="oplus_mic_count" value="2"/>
         <!-- In the below value string, the value indicates default mono -->
         <!-- speaker. It can be set to either left or right              -->
         <param key="mono_speaker" value="left"/>
