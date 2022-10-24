@@ -74,6 +74,9 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 # Fingerprint
 TARGET_SURFACEFLINGER_UDFPS_LIB := //hardware/oplus:libudfps_extension.oplus
 
+# Firmware
+-include vendor/oneplus/firmware/BoardConfigVendor.mk
+
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(DEVICE_PATH)/device_framework_matrix.xml \
