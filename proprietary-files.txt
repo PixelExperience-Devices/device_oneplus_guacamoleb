@@ -73,11 +73,13 @@ vendor/lib/libaudcal.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioconfigstore.so
 vendor/lib/libopf.so
+vendor/lib/libbatterylistener.so
 vendor/lib/libqtigef.so
 vendor/lib/libssrec.so
 vendor/lib/vendor.qti.hardware.audiohalext@1.0.so
 vendor/lib64/hw/audio.primary.msmnile.so
 vendor/lib64/libadsprpc.so
+vendor/lib64/libbatterylistener.so
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
