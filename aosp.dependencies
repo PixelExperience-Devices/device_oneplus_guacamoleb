@@ -8,7 +8,7 @@
   {
     "repository"  : "hardware_oplus",
     "target_path" : "hardware/oplus",
-    "branch"      : "thirteen-plus",
+    "branch"      : "thirteen",
     "remote"      : "pixel"
   },
   {
