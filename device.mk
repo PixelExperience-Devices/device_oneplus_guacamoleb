@@ -96,9 +96,7 @@ PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0.vendor
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 2240
-TARGET_SCREEN_WIDTH := 1080
-
+TARGET_BOOT_ANIMATION_RES := 1080
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0.vendor \
@@ -375,7 +373,7 @@ PRODUCT_COPY_FILES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-aosp
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \

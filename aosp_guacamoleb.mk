@@ -11,11 +11,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from guacamoleb device
 $(call inherit-product, device/oneplus/guacamoleb/device.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Pixel Experience stuff.
+$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_guacamoleb
+PRODUCT_NAME := aosp_guacamoleb
 PRODUCT_DEVICE := guacamoleb
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_MODEL := GM1905
@@ -27,8 +27,5 @@ PRODUCT_SYSTEM_DEVICE := OnePlus7
 PRODUCT_GMS_CLIENTID_BASE := android-oneplus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="OnePlus7-user 10 QKQ1.190716.003 2003131900 release-keys" \
     TARGET_DEVICE=$(PRODUCT_SYSTEM_DEVICE) \
     TARGET_PRODUCT=$(PRODUCT_SYSTEM_NAME)
-
-BUILD_FINGERPRINT := OnePlus/OnePlus7/OnePlus7:10/QKQ1.190716.003/2003131900:user/release-keys

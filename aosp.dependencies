@@ -1,0 +1,14 @@
+[
+  {
+    "repository"  : "kernel_oneplus_guacamoleb",
+    "target_path" : "kernel/oneplus/guacamoleb",
+    "branch"      : "fourteen",
+    "remote"      : "pixel-devices"
+  },
+  {
+    "repository"  : "vendor_oneplus_guacamoleb",
+    "target_path" : "vendor/oneplus/guacamoleb",
+    "branch"      : "fourteen",
+    "remote"      : "pixel-devices-blobs"
+  }
+]
