@@ -4,6 +4,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# AAPT
+PRODUCT_AAPT_CONFIG := xxhdpi
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -65,6 +69,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
     $(LOCAL_PATH)/audio/audio_io_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_io_policy.conf \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/mixer_paths_pahu.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_pahu.xml \
+    $(LOCAL_PATH)/audio/mixer_paths_tavil.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_tavil.xml \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
     $(LOCAL_PATH)/audio/audio_tuning_mixer.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer.txt \
     $(LOCAL_PATH)/audio/audio_tuning_mixer_tavil.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer_tavil.txt \
@@ -90,6 +96,10 @@ PRODUCT_COPY_FILES += \
 # Authsecret
 PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0.vendor
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2240
+TARGET_SCREEN_WIDTH := 1080
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -236,6 +246,7 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
+    fstab.qcom \
     ftm_power_config.sh \
     init.class_main.sh \
     init.crda.sh \
@@ -405,6 +416,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.servicetracker@1.0.vendor
 
+# Shipping API
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
@@ -505,4 +519,4 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 
 # Inherit from the proprietary files makefile.
-$(call inherit-product, vendor/oneplus/sm8150-common/sm8150-common-vendor.mk)
+$(call inherit-product, vendor/oneplus/guacamoleb/guacamoleb-vendor.mk)
