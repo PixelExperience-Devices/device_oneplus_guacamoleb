@@ -36,6 +36,14 @@ using namespace android;
 
 static Rect screenshot_rect(251, 988, 305, 1042);
 
+// See frameworks/base/services/core/jni/com_android_server_display_DisplayControl.cpp and
+// frameworks/base/core/java/android/view/SurfaceControl.java
+static sp<IBinder> getInternalDisplayToken() {
+    const auto displayIds = SurfaceComposerClient::getPhysicalDisplayIds();
+    sp<IBinder> token = SurfaceComposerClient::getPhysicalDisplayToken(displayIds[0]);
+    return token;
+}
+
 class TakeScreenshotCommand : public FrameworkCommand {
   public:
     TakeScreenshotCommand() : FrameworkCommand("take_screenshot") {}
@@ -62,7 +70,7 @@ class TakeScreenshotCommand : public FrameworkCommand {
         gui::ScreenCaptureResults captureResults;
 
         DisplayCaptureArgs captureArgs;
-        captureArgs.displayToken = SurfaceComposerClient::getInternalDisplayToken();
+        captureArgs.displayToken = getInternalDisplayToken();
         captureArgs.pixelFormat = android::ui::PixelFormat::RGBA_8888;
         captureArgs.sourceCrop = screenshot_rect;
         captureArgs.width = screenshot_rect.getWidth();
@@ -71,7 +79,7 @@ class TakeScreenshotCommand : public FrameworkCommand {
         status_t ret = ScreenshotClient::captureDisplay(captureArgs, captureListener);
         if (ret == NO_ERROR) {
             captureResults = captureListener->waitForResults();
-            if (captureResults.result == NO_ERROR)  outBuffer = captureResults.buffer;
+            if (captureResults.fenceResult.ok())  outBuffer = captureResults.buffer;
         }
 
         uint8_t *out;
