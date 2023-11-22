@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,18 +19,18 @@
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
 #include <hidl/HidlTransportSupport.h>
-#include <livedisplay/oneplus/AntiFlicker.h>
-#include <livedisplay/oneplus/SunlightEnhancement.h>
 #include <livedisplay/sdm/PictureAdjustment.h>
 #include <vendor/lineage/livedisplay/2.1/IPictureAdjustment.h>
 
+#include "AntiFlicker.h"
 #include "DisplayModes.h"
+#include "SunlightEnhancement.h"
 
-using android::OK;
-using android::sp;
-using android::status_t;
-using android::hardware::configureRpcThreadpool;
-using android::hardware::joinRpcThreadpool;
+using ::android::OK;
+using ::android::sp;
+using ::android::status_t;
+using ::android::hardware::configureRpcThreadpool;
+using ::android::hardware::joinRpcThreadpool;
 
 using ::vendor::lineage::livedisplay::V2_0::sdm::PictureAdjustment;
 using ::vendor::lineage::livedisplay::V2_0::sdm::SDMController;
